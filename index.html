@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birdie For Good</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Golf charity subscription platform</p>
+        <a class="brand" href="#home">Birdie For Good</a>
+      </div>
+      <nav class="topnav">
+        <a href="#home">Home</a>
+        <a href="#subscriber">Subscriber</a>
+        <a href="#admin">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Win monthly. Give monthly. Track every round.</p>
+          <h1>
+            A charity-first golf subscription
+            <span>that feels alive, not traditional.</span>
+          </h1>
+          <p class="hero-text">
+            Subscribe on a monthly or yearly plan, log your latest five Stableford scores,
+            support a charity you care about, and enter a monthly draw with automatic prize-pool logic.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#subscriber">Start Subscriber Flow</a>
+            <a class="button button-secondary" href="#admin">Open Admin Controls</a>
+          </div>
+          <div class="hero-metrics">
+            <article>
+              <strong id="metricSubscribers">248</strong>
+              <span>Active subscribers</span>
+            </article>
+            <article>
+              <strong id="metricCharity">$3,720</strong>
+              <span>Charity impact this month</span>
+            </article>
+            <article>
+              <strong id="metricJackpot">$4,960</strong>
+              <span>Current 5-match jackpot</span>
+            </article>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <div class="orb orb-coral"></div>
+          <div class="orb orb-gold"></div>
+          <div class="panel-card spotlight-card">
+            <p class="card-label">Featured charity</p>
+            <h2 id="featuredCharityName">First Swing Foundation</h2>
+            <p id="featuredCharitySummary">
+              Funding junior golf access and mentoring for underrepresented communities.
+            </p>
+            <div class="spotlight-meta">
+              <span>Upcoming event</span>
+              <strong id="featuredCharityEvent">April 16 - Youth Golf Day</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section-grid">
+        <article class="panel-card concept-card">
+          <p class="card-label">How it works</p>
+          <div class="steps">
+            <div>
+              <span>01</span>
+              <h3>Subscribe</h3>
+              <p>Choose monthly or yearly billing and set the percentage that goes to charity.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <h3>Enter scores</h3>
+              <p>Keep your latest five Stableford scores current. The oldest entry rolls off automatically.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <h3>Join monthly draws</h3>
+              <p>Every active subscriber enters the draw pool. Admins can simulate before publishing results.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel-card charities-card">
+          <div class="section-heading">
+            <div>
+              <p class="card-label">Charity directory</p>
+              <h2>Search and spotlight causes</h2>
+            </div>
+            <input id="charitySearch" class="search-input" type="search" placeholder="Search charities or events">
+          </div>
+          <div id="charityList" class="charity-list"></div>
+        </article>
+      </section>
+
+      <section id="subscriber" class="dashboard-section">
+        <div class="section-heading stack-mobile">
+          <div>
+            <p class="card-label">Subscriber dashboard</p>
+            <h2>Subscription, scores, charity, and winnings in one place</h2>
+          </div>
+          <span id="subscriptionStatusBadge" class="status-badge active">Active</span>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel-card form-card">
+            <h3>Subscription setup</h3>
+            <form id="subscriptionForm" class="form-grid">
+              <label>
+                Full name
+                <input id="userName" name="userName" type="text" value="Aarav Malhotra" required>
+              </label>
+              <label>
+                Email
+                <input id="userEmail" name="userEmail" type="email" value="aarav@example.com" required>
+              </label>
+              <label>
+                Plan
+                <select id="planSelect" name="planSelect">
+                  <option value="monthly">Monthly - $29</option>
+                  <option value="yearly">Yearly - $299</option>
+                </select>
+              </label>
+              <label>
+                Subscription state
+                <select id="subscriptionState" name="subscriptionState">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="lapsed">Lapsed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </label>
+              <label>
+                Renewal date
+                <input id="renewalDate" name="renewalDate" type="date" value="2026-04-18">
+              </label>
+              <label>
+                Charity percentage
+                <input id="charityPercent" name="charityPercent" type="number" min="10" max="90" value="18">
+              </label>
+              <label class="full-span">
+                Selected charity
+                <select id="charitySelect" name="charitySelect"></select>
+              </label>
+              <button class="button button-primary full-span" type="submit">Update Subscription</button>
+            </form>
+          </article>
+
+          <article class="panel-card summary-card">
+            <h3>Account summary</h3>
+            <div class="summary-list">
+              <div>
+                <span>Subscription</span>
+                <strong id="summaryPlan">Monthly</strong>
+              </div>
+              <div>
+                <span>Renewal</span>
+                <strong id="summaryRenewal">18 Apr 2026</strong>
+              </div>
+              <div>
+                <span>Selected charity</span>
+                <strong id="summaryCharity">First Swing Foundation</strong>
+              </div>
+              <div>
+                <span>Charity contribution</span>
+                <strong id="summaryContribution">$5.22 / billing cycle</strong>
+              </div>
+            </div>
+            <div class="summary-note">
+              Independent donation option is available below and does not affect draw participation.
+            </div>
+          </article>
+
+          <article class="panel-card scores-card">
+            <div class="section-heading stack-mobile">
+              <div>
+                <h3>Latest 5 Stableford scores</h3>
+                <p>Accepted range is 1 to 45. New entries replace the oldest score automatically.</p>
+              </div>
+              <div class="chip-row">
+                <span class="chip">Reverse chronological display</span>
+                <span class="chip">Auto-retention rule</span>
+              </div>
+            </div>
+
+            <form id="scoreForm" class="score-form">
+              <label>
+                Score
+                <input id="scoreValue" type="number" min="1" max="45" required>
+              </label>
+              <label>
+                Date
+                <input id="scoreDate" type="date" required>
+              </label>
+              <button class="button button-primary" type="submit">Add Score</button>
+            </form>
+
+            <div id="scoreMode" class="inline-note">Add a new score to replace the oldest of the stored five.</div>
+            <div id="scoreError" class="inline-error" aria-live="polite"></div>
+            <div id="scoreList" class="score-list"></div>
+          </article>
+
+          <article class="panel-card participation-card">
+            <h3>Participation and winnings</h3>
+            <div class="summary-list">
+              <div>
+                <span>Draws entered</span>
+                <strong id="drawsEntered">12</strong>
+              </div>
+              <div>
+                <span>Next draw</span>
+                <strong id="nextDraw">31 Mar 2026</strong>
+              </div>
+              <div>
+                <span>Total won</span>
+                <strong id="totalWon">$420</strong>
+              </div>
+              <div>
+                <span>Payment state</span>
+                <strong id="paymentStatus">Pending</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card donation-card">
+            <h3>Independent donation</h3>
+            <form id="donationForm" class="form-grid compact-grid">
+              <label>
+                Amount
+                <input id="donationAmount" type="number" min="1" value="50">
+              </label>
+              <label>
+                Dedicate to
+                <select id="donationCharity"></select>
+              </label>
+              <button class="button button-secondary full-span" type="submit">Record Donation</button>
+            </form>
+            <p id="donationFeedback" class="inline-note"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="admin" class="dashboard-section">
+        <div class="section-heading stack-mobile">
+          <div>
+            <p class="card-label">Admin dashboard</p>
+            <h2>Draw engine, verification, charities, and platform analytics</h2>
+          </div>
+          <span class="status-badge">Admin mode</span>
+        </div>
+
+        <div class="dashboard-grid admin-grid">
+          <article class="panel-card analytics-card">
+            <h3>Platform analytics</h3>
+            <div class="metrics-grid">
+              <div>
+                <span>Total users</span>
+                <strong id="adminTotalUsers">248</strong>
+              </div>
+              <div>
+                <span>Total prize pool</span>
+                <strong id="adminPrizePool">$12,400</strong>
+              </div>
+              <div>
+                <span>Charity contributions</span>
+                <strong id="adminCharityTotal">$3,720</strong>
+              </div>
+              <div>
+                <span>Draw mode</span>
+                <strong id="adminDrawMode">Random</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card draw-card">
+            <div class="section-heading stack-mobile">
+              <div>
+                <h3>Monthly draw engine</h3>
+                <p>Simulate results first, then publish official winners and prize splits.</p>
+              </div>
+              <span id="publishState" class="chip">Draft results</span>
+            </div>
+
+            <form id="drawForm" class="form-grid compact-grid">
+              <label>
+                Draw logic
+                <select id="drawMode">
+                  <option value="random">Random generation</option>
+                  <option value="weighted">Algorithmic weighted mode</option>
+                </select>
+              </label>
+              <label>
+                Draw month
+                <input id="drawMonth" type="month" value="2026-03">
+              </label>
+              <button id="simulateBtn" class="button button-secondary" type="button">Run Simulation</button>
+              <button id="publishBtn" class="button button-primary" type="button">Publish Results</button>
+            </form>
+
+            <div class="draw-panels">
+              <div>
+                <p class="card-label">Generated numbers</p>
+                <div id="drawNumbers" class="balls-row"></div>
+              </div>
+              <div>
+                <p class="card-label">Prize split</p>
+                <div id="prizeBreakdown" class="prize-breakdown"></div>
+              </div>
+            </div>
+
+            <div id="drawSummary" class="inline-note"></div>
+          </article>
+
+          <article class="panel-card winners-card">
+            <h3>Winner verification</h3>
+            <div id="winnerList" class="winner-list"></div>
+          </article>
+
+          <article class="panel-card charities-admin-card">
+            <div class="section-heading stack-mobile">
+              <div>
+                <h3>Charity management</h3>
+                <p>Add spotlight-ready charity listings with events and media-friendly summaries.</p>
+              </div>
+            </div>
+            <form id="charityForm" class="form-grid">
+              <label>
+                Charity name
+                <input id="charityNameInput" type="text" required>
+              </label>
+              <label>
+                Search tag
+                <input id="charityTagInput" type="text" required>
+              </label>
+              <label class="full-span">
+                Description
+                <textarea id="charityDescriptionInput" rows="3" required></textarea>
+              </label>
+              <label>
+                Upcoming event
+                <input id="charityEventInput" type="text" required>
+              </label>
+              <label>
+                Featured
+                <select id="charityFeaturedInput">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </label>
+              <button class="button button-primary full-span" type="submit">Add Charity</button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "first-vs",
+  "version": "1.0.0",
+  "description": "Birdie For Good demo platform",
+  "dependencies": {
+    "next": "^15.5.14",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": true
+}
