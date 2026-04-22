@@ -67,4 +67,6 @@ npm run dev
 
 ## Contact
 
-Divya Shree
+Divya Shree  
+Email: div21go@gmail.com  
+LinkedIn: https://www.linkedin.com/in/divyashree-kumar-6833b328a
