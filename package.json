@@ -8,6 +8,7 @@
     "react-dom": "^19.2.4"
   },
   "scripts": {
+    "summarize": "node summarize-tfidf.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"

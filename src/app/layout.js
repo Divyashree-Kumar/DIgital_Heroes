@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Birdie For Good",
-  description: "Golf charity subscription platform demo"
+  title: "TF-IDF Text Summarizer",
+  description: "Full-stack text summarization app using TF-IDF sentence scoring"
 };
 
 export default function RootLayout({ children }) {

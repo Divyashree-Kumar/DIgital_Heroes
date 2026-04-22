@@ -1,5 +1,5 @@
-import { PlatformApp } from "@/components/platform-app";
+import { SummarizerApp } from "@/components/summarizer-app";
 
 export default function HomePage() {
-  return <PlatformApp mode="home" />;
+  return <SummarizerApp />;
 }
